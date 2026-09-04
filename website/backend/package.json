@@ -1,0 +1,12 @@
+{
+  "name": "stonecentury-vault-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Netlify Function backing The Vault (Ask StoneCentury) — answers only from the StoneCentury Knowledge Base Brain Shared Drive.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.14.1"
+  }
+}
