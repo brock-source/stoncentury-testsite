@@ -1,0 +1,871 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/tokens/colors.css">
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/tokens/typography.css">
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/tokens/effects.css">
+<link rel="stylesheet" href="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/styles.css">
+<script src="_ds/stonecentury-financial-design-system-17eb0204-4fc5-406d-95c7-17f867320cc2/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:var(--paper); color:var(--text-body); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
+  a { color:var(--link); text-decoration:none; }
+  a:hover { color:var(--link-hover); }
+  h1,h2,h3,h4 { text-wrap:balance; }
+  p { text-wrap:pretty; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--paper)">
+
+  <div style="background:var(--ink-900);color:var(--text-on-dark-muted);font-family:var(--font-label);font-size:12px;letter-spacing:0.14em;text-transform:uppercase">
+    <div style="max-width:1120px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div style="display:flex;gap:28px;align-items:center">
+        <span>Brentwood, Tennessee</span>
+        <span style="color:var(--stone-500)">(615) 397-8799</span>
+      </div>
+      <div style="display:flex;gap:28px;align-items:center">
+        <span style="color:var(--gold-500)">Money Made Simple</span>
+      </div>
+    </div>
+  </div>
+
+  <header style="position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1120px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+      <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;flex:none">
+        <img src="assets/logo.png" alt="StoneCentury Financial" style="height:44px;width:auto;display:block">
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px">
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+          <a href="#" onClick="{{ goHome }}" style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-800)">Home</a>
+          <sc-if value="{{ navHome }}" hint-placeholder-val="{{ true }}"><span style="display:block;height:2px;width:100%;background:var(--gold-600)"></span></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+          <a href="#" onClick="{{ goWho }}" style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-800)">Who We Help</a>
+          <sc-if value="{{ navWho }}"><span style="display:block;height:2px;width:100%;background:var(--gold-600)"></span></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+          <a href="#" onClick="{{ goProcess }}" style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-800)">Our Process</a>
+          <sc-if value="{{ navProcess }}"><span style="display:block;height:2px;width:100%;background:var(--gold-600)"></span></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+          <a href="#" onClick="{{ goAbout }}" style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-800)">About</a>
+          <sc-if value="{{ navAbout }}"><span style="display:block;height:2px;width:100%;background:var(--gold-600)"></span></sc-if>
+        </div>
+        <div onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position:relative;display:flex;flex-direction:column;gap:6px;align-items:center">
+          <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-800)">Resources</a>
+          <sc-if value="{{ navResources }}"><span style="display:block;height:2px;width:100%;background:var(--gold-600)"></span></sc-if>
+          <sc-if value="{{ menuOpen }}">
+            <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:12px;background:var(--paper);border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);border-radius:var(--radius-md);padding:8px 0;min-width:230px;display:flex;flex-direction:column">
+              <a href="#" onClick="{{ goResources }}" style="padding:11px 20px;font-family:var(--font-body);font-size:15px;color:var(--text-body)">Blog</a>
+              <a href="#" onClick="{{ goResources }}" style="padding:11px 20px;font-family:var(--font-body);font-size:15px;color:var(--text-body)">Free Rockefeller Book</a>
+              <a href="#" onClick="{{ goResources }}" style="padding:11px 20px;font-family:var(--font-body);font-size:15px;color:var(--text-body)">Legacy Builder Course</a>
+            </div>
+          </sc-if>
+        </div>
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" size="sm" arrow="{{ true }}" onClick="{{ goSchedule }}" hint-size="180px,36px">Schedule a Call</x-import>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main data-screen-label="Home">
+
+    <sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}">
+      <section style="position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden">
+        <div data-parallax="1" style="position:absolute;inset:-8% 0;height:116%;background:var(--navy-900)">
+          <image-slot id="hero-band" shape="rect" fit="cover" placeholder="Full-bleed hero photo — stone tower / architectural, wide crop"></image-slot>
+        </div>
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(23,36,52,0.62) 0%, rgba(23,36,52,0.48) 45%, rgba(23,36,52,0.72) 100%)"></div>
+        <div style="position:relative;pointer-events:none;max-width:900px;margin:0 auto;padding:120px 24px;text-align:center">
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-500);margin-bottom:24px">Wealth Structure for High Earners</div>
+          <h1 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.18;letter-spacing:0.04em;text-transform:uppercase;color:#fff;margin:0">You Don't Need More Income.<br>You Need a Better System.</h1>
+          <p style="font-family:var(--font-body);font-size:19px;line-height:1.7;color:#e4e6ea;max-width:60ch;margin:28px auto 0">Most people don't need more income. They need a better structure for the income they already have. We replace the scattered accounts, products, and advice with one system you actually understand.</p>
+          <div style="display:flex;gap:20px;justify-content:center;align-items:center;margin-top:40px;flex-wrap:wrap;pointer-events:auto">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" size="lg" arrow="{{ true }}" onClick="{{ goSchedule }}" hint-size="220px,54px">Schedule a Call</x-import>
+            <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:4px">Get the Free Rockefeller Book →</a>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ heroB }}">
+      <section style="background:var(--paper-warm);border-bottom:1px solid var(--border-subtle)">
+        <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;padding:0 24px">
+          <div style="padding:104px 0">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px">
+              <span style="display:block;width:44px;height:2px;background:var(--gold-600)"></span>
+              <span style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-700)">Nashville, Tennessee</span>
+            </div>
+            <h1 style="font-family:var(--font-display);font-weight:700;font-size:52px;line-height:1.2;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy-800);margin:0">Stop Chasing Income.<br>Start Building a System.</h1>
+            <p style="font-family:var(--font-body);font-size:19px;line-height:1.75;color:var(--text-body);max-width:48ch;margin:26px 0 0">You don't need another product. You need to see the whole game board, then build your strategy. I'll show you the whole board — and I'll show you why we're doing what we're doing.</p>
+            <div style="display:flex;gap:24px;align-items:center;margin-top:38px;flex-wrap:wrap">
+              <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" size="lg" arrow="{{ true }}" onClick="{{ goSchedule }}" hint-size="220px,54px">Schedule a Call</x-import>
+              <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-700);border-bottom:1px solid var(--stone-300);padding-bottom:4px">Free Rockefeller Book →</a>
+            </div>
+            <div style="display:flex;gap:40px;margin-top:56px;padding-top:28px;border-top:1px solid var(--border-subtle)">
+              <div>
+                <div style="font-family:var(--font-display);font-size:26px;color:var(--navy-800)">9</div>
+                <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:6px">Years advising</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:26px;color:var(--navy-800)">MSF</div>
+                <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:6px">Vanderbilt</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:26px;color:var(--navy-800)">LEAP</div>
+                <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:6px">&amp; Rockefeller Method</div>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative;height:640px">
+            <image-slot id="hero-brock" shape="rect" placeholder="Portrait of Brock — vertical, natural light"></image-slot>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ heroC }}">
+      <section style="background:var(--ink-900);position:relative;overflow:hidden">
+        <div style="max-width:1120px;margin:0 auto;padding:120px 24px 0">
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone-500)">A better measure of wealth</div>
+          <h1 style="font-family:var(--font-display);font-weight:700;font-size:96px;line-height:1.02;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin:32px 0 0">Cash Flow<br><span style="color:var(--stone-700)">Not Net Worth</span></h1>
+          <p style="font-family:var(--font-body);font-size:20px;line-height:1.7;color:#c9ccd1;max-width:52ch;margin:36px 0 0">Anyone can save and accumulate net worth. It's not hard. The question is how you access and use it without running out of money before you die.</p>
+          <div style="display:flex;gap:24px;align-items:center;margin:44px 0 0;flex-wrap:wrap">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="outline" size="lg" arrow="{{ true }}" onClick="{{ goSchedule }}" style="{{ heroCBtn }}" hint-size="220px,54px">Schedule a Call</x-import>
+            <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-500);border-bottom:1px solid rgba(195,154,79,0.5);padding-bottom:4px">Free Rockefeller Book →</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:88px;border-top:1px solid rgba(255,255,255,0.14)">
+            <div style="padding:28px 32px 32px 0;border-right:1px solid rgba(255,255,255,0.14)">
+              <div style="font-family:var(--font-display);font-size:34px;color:#fff">$400k</div>
+              <div style="font-family:var(--font-body);font-size:15px;color:var(--stone-500);margin-top:8px">less in retirement assets</div>
+            </div>
+            <div style="padding:28px 32px 32px 32px;border-right:1px solid rgba(255,255,255,0.14)">
+              <div style="font-family:var(--font-display);font-size:34px;color:var(--gold-500)">+$140k</div>
+              <div style="font-family:var(--font-body);font-size:15px;color:var(--stone-500);margin-top:8px">more retirement income, per year</div>
+            </div>
+            <div style="padding:28px 0 32px 32px">
+              <div style="font-family:var(--font-display);font-size:34px;color:#fff">One</div>
+              <div style="font-family:var(--font-body);font-size:15px;color:var(--stone-500);margin-top:8px">system, not nine accounts</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="The problem" deck="Not because you're spending wildly. Not because you're not working hard. But because no one ever taught you how to structure wealth — only how to chase it." hint-size="100%,180px">The Financial Junk Drawer</x-import>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px">
+          <div style="background:var(--paper-alt);padding:36px 32px 40px;border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Nine Accounts, No Plan</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body);margin:16px 0 0">A 401(k) from two jobs ago. A policy someone sold you. A brokerage account you don't check. Nothing talks to anything else.</p>
+          </div>
+          <div style="background:var(--paper-alt);padding:36px 32px 40px;border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Income In, Nothing Left</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body);margin:16px 0 0">Lifestyle spending and investable cash live in the same account, so every decision feels like it costs you something.</p>
+          </div>
+          <div style="background:var(--paper-alt);padding:36px 32px 40px;border-radius:var(--radius-md)">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Advice You Can't Verify</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body);margin:16px 0 0">You were sold a product, not a structure — and no one ever gave you a way to test whether the decision was right.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:88px 24px;background:var(--paper-alt)">
+      <div style="max-width:760px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Quote" cite="Brock Fortner" role="Founder, StoneCentury Financial" hint-size="100%,160px">You don't need another product. You need to see the whole game board, then build your strategy.</x-import>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="Who we help" deck="Four kinds of high earners, four different structural problems. Find the one that reads like your life." hint-size="100%,180px">People Like You</x-import>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px">
+          <div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:200px;position:relative"><image-slot id="arch-1" shape="rect" placeholder="Early-career professional"></image-slot></div>
+            <div style="padding:26px 24px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-700)">Ages 25–35</div>
+              <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Intentional Starter</div>
+              <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0">Your income just outgrew your habits. Build the structure now, before the money makes the decisions for you.</p>
+            </div>
+          </div>
+          <div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:200px;position:relative"><image-slot id="arch-2" shape="rect" placeholder="Sales leader / consultant"></image-slot></div>
+            <div style="padding:26px 24px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-700)">Ages 35–50</div>
+              <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Performance-Driven Producer</div>
+              <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0">You produce at a high level and it still feels leaky. Separate income from lifestyle and the pressure drops.</p>
+            </div>
+          </div>
+          <div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:200px;position:relative"><image-slot id="arch-3" shape="rect" placeholder="Executive / entrepreneur"></image-slot></div>
+            <div style="padding:26px 24px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-700)">Ages 40–55</div>
+              <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Architect of Freedom</div>
+              <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0">You have assets. What you want is a personal income engine — cash flow that doesn't depend on you showing up.</p>
+            </div>
+          </div>
+          <div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:200px;position:relative"><image-slot id="arch-4" shape="rect" placeholder="Business owner, later career"></image-slot></div>
+            <div style="padding:26px 24px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-700)">Ages 55–70</div>
+              <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Legacy Steward</div>
+              <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0">The goal isn't just to pass on assets. It's to pass on wisdom, structure, and stewardship.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:44px">
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="outline" arrow="{{ true }}" onClick="{{ goWho }}" hint-size="200px,46px">See Who We Help</x-import>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--navy-900)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="Our process" tone="onDark" deck="Four conversations. No products until the structure is on paper." hint-size="100%,180px">How the System Gets Built</x-import>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1px solid rgba(255,255,255,0.16)">
+          <div style="padding:32px 32px 8px 0;border-right:1px solid rgba(255,255,255,0.16)">
+            <div style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-500)">01</div>
+            <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin-top:18px">Clarity Call</div>
+            <p style="font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-on-dark-muted);margin:14px 0 0">Thirty minutes. What you earn, what you own, what you're actually trying to buy with it.</p>
+          </div>
+          <div style="padding:32px 32px 8px 32px;border-right:1px solid rgba(255,255,255,0.16)">
+            <div style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-500)">02</div>
+            <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin-top:18px">The Whole Board</div>
+            <p style="font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-on-dark-muted);margin:14px 0 0">Every account, policy, and dollar of cash flow in one picture, using the LEAP method — so you can see it, not just hear about it.</p>
+          </div>
+          <div style="padding:32px 32px 8px 32px;border-right:1px solid rgba(255,255,255,0.16)">
+            <div style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-500)">03</div>
+            <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin-top:18px">Build the Structure</div>
+            <p style="font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-on-dark-muted);margin:14px 0 0">Separate income from lifestyle. Automate the movement. Get real-time visibility into free cash flow.</p>
+          </div>
+          <div style="padding:32px 0 8px 32px">
+            <div style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-500)">04</div>
+            <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin-top:18px">Steward It</div>
+            <p style="font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-on-dark-muted);margin:14px 0 0">Ongoing review, and the Rockefeller Method applied to what passes down — wisdom and structure, not just assets.</p>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:52px">
+          <a href="#" onClick="{{ goProcess }}" style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:4px">Walk Through the Process →</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:0;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:96px 24px">
+        <div>
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-700)">Client case study</div>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;line-height:1.25;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">Passive Income That Covers Life Twice Over</h2>
+          <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:22px 0 0">Inside five years, one client's passive income exceeded their lifestyle expenses by 100%. It wasn't one big move. It was compounding momentum — a snowball, not a swing.</p>
+          <div style="display:flex;gap:48px;margin-top:36px;padding-top:28px;border-top:1px solid var(--border-subtle)">
+            <div>
+              <div style="font-family:var(--font-display);font-size:34px;color:var(--navy-800)">5 yrs</div>
+              <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:8px">To full coverage</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:34px;color:var(--gold-600)">100%</div>
+              <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:8px">Above lifestyle expenses</div>
+            </div>
+          </div>
+          <p style="font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--stone-500);margin:28px 0 0">Individual results vary. Case studies are illustrative and are not a guarantee of future outcomes.</p>
+        </div>
+        <div style="position:relative;height:440px;border-radius:var(--radius-md);overflow:hidden">
+          <image-slot id="case-study" shape="rect" fit="cover" placeholder="Client photo or cash-flow chart"></image-slot>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper-alt)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="In their words" deck="Clients don't come to us for a product. They come to stop guessing." hint-size="100%,180px">What Clients Say</x-import>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px">
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:34px 30px 30px">
+            <p style="font-family:var(--font-body);font-style:italic;font-size:18px;line-height:1.6;color:var(--navy-800);margin:0">I came in thinking I had an income problem. I had a structure problem. Six months later the same paycheck goes twice as far.</p>
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:22px">Client · Sales Executive, Nashville</div>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:34px 30px 30px">
+            <p style="font-family:var(--font-body);font-style:italic;font-size:18px;line-height:1.6;color:var(--navy-800);margin:0">Brock never told me what to do. He showed me why, until I could make the call myself. That's the part nobody else did.</p>
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:22px">Client · Business Owner, Franklin TN</div>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:34px 30px 30px">
+            <p style="font-family:var(--font-body);font-style:italic;font-size:18px;line-height:1.6;color:var(--navy-800);margin:0">We had nine accounts and no plan. Now there's one system, and my wife can explain it as well as I can.</p>
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:22px">Client · Physician, Brentwood TN</div>
+          </div>
+        </div>
+        <p style="font-family:var(--font-body);font-size:13px;color:var(--stone-500);text-align:center;margin:32px 0 0">Placeholder testimonial copy — replace with approved client language before launch.</p>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;padding:88px 24px">
+        <div style="position:relative;height:380px;border-radius:var(--radius-md);overflow:hidden">
+          <image-slot id="book-cover" shape="rect" fit="cover" placeholder="Book cover / stone tower photo"></image-slot>
+        </div>
+        <div>
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-700)">Free resource</div>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;line-height:1.25;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">The Rockefeller Book — Yours Free</h2>
+          <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:20px 0 0">How one family kept wealth intact for six generations while most lose it in three. Read it before your next financial decision.</p>
+          <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;align-items:flex-end">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Input" label="Email address" placeholder="you@company.com" style="{{ emailField }}" hint-size="280px,74px"></x-import>
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="navy" arrow="{{ true }}" hint-size="180px,46px">Send Me the Book</x-import>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:104px 24px;background:var(--ink-900);text-align:center">
+      <div style="max-width:760px;margin:0 auto">
+        <h2 style="font-family:var(--font-display);font-weight:700;font-size:44px;line-height:1.22;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin:0">If You Don't Know Where to Start, Let's Talk.</h2>
+        <p style="font-family:var(--font-body);font-size:19px;line-height:1.7;color:#c9ccd1;margin:24px 0 0">Thirty minutes, no pitch. You'll leave knowing what your structure is missing whether or not we work together.</p>
+        <div style="display:flex;gap:20px;justify-content:center;align-items:center;margin-top:38px;flex-wrap:wrap">
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="outline" size="lg" arrow="{{ true }}" onClick="{{ goSchedule }}" style="{{ heroCBtn }}" hint-size="240px,54px">Let's Build the Next Chapter</x-import>
+          <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-500);border-bottom:1px solid rgba(195,154,79,0.5);padding-bottom:4px">Free Rockefeller Book →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isWho }}">
+  <main data-screen-label="Who We Help">
+    <section style="position:relative;padding:104px 24px;background:var(--navy-900)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" level="1" align="left" tone="onDark" eyebrow="Who we help" deck="High earners between $200k and $800k who are done guessing. Four stages, four different structural problems." hint-size="100%,220px">People Like You</x-import>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:80px">
+
+        <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center">
+          <div style="position:relative;height:400px"><image-slot id="who-1" shape="rect" placeholder="Early-career professional at work"></image-slot></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-700)">01</span>
+              <span style="display:block;width:40px;height:1px;background:var(--border-default)"></span>
+              <span style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Ages 25–35</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">Intentional Starter</h2>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:18px 0 0">Early-career professionals and new business owners whose income just outran their habits. You have more coming in than you've ever had and no framework for where it goes.</p>
+            <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Your first investment should always be in yourself</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Write the financial blueprint before you pick a product</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Separate lifestyle spending from investable cash on day one</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center">
+          <div>
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-700)">02</span>
+              <span style="display:block;width:40px;height:1px;background:var(--border-default)"></span>
+              <span style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Ages 35–50</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">Performance-Driven Producer</h2>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:18px 0 0">Sales leaders, consultants, and investors producing at a high level who still feel the leak. The hesitation to invest isn't income — it's the lack of separation, automation, and visibility.</p>
+            <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Automate the movement so decisions stop costing willpower</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Real-time visibility into free cash flow</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Build a war chest for opportunity, not just an emergency fund</span></li>
+            </ul>
+          </div>
+          <div style="position:relative;height:400px"><image-slot id="who-2" shape="rect" placeholder="Sales leader / consultant"></image-slot></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center">
+          <div style="position:relative;height:400px"><image-slot id="who-3" shape="rect" placeholder="Executive or entrepreneur"></image-slot></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-700)">03</span>
+              <span style="display:block;width:40px;height:1px;background:var(--border-default)"></span>
+              <span style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Ages 40–55</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">Architect of Freedom</h2>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:18px 0 0">Established executives and entrepreneurs with real assets and no usable freedom. This is the broke millionaire trap: a big number sitting still is not wealth.</p>
+            <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Convert stored capital into a personal income engine</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Strategy built on your Investor DNA, not someone else's model</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Freedom with safeguards — because freedom without them is temporary</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center">
+          <div>
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-family:var(--font-display);font-size:15px;letter-spacing:0.2em;color:var(--gold-700)">04</span>
+              <span style="display:block;width:40px;height:1px;background:var(--border-default)"></span>
+              <span style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Ages 55–70</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:20px 0 0">Legacy Steward</h2>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:18px 0 0">Business owners, investors, and executives thinking past themselves. Retirement is about income, not a big nest egg — and legacy is about more than the balance sheet.</p>
+            <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Retirement income design, not nest-egg math</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">The Rockefeller Method applied to your family</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Pass on wisdom, structure, and stewardship — not just assets</span></li>
+            </ul>
+          </div>
+          <div style="position:relative;height:400px"><image-slot id="who-4" shape="rect" placeholder="Business owner, later career"></image-slot></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:88px 24px;background:var(--paper-alt);text-align:center">
+      <div style="max-width:700px;margin:0 auto">
+        <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">Don't See Yourself Here?</h2>
+        <p style="font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--text-body);margin:18px 0 32px">Shoot us a message anyway. If we're not the right fit, we'll tell you that on the first call.</p>
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" arrow="{{ true }}" onClick="{{ goSchedule }}" hint-size="200px,46px">Schedule a Call</x-import>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProcess }}">
+  <main data-screen-label="Our Process">
+    <section style="position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden">
+      <div style="position:absolute;inset:0;background:var(--navy-900)">
+        <image-slot id="process-band" shape="rect" fit="cover" placeholder="Wide banner photo — stone / architectural detail"></image-slot>
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(23,36,52,0.72) 0%, rgba(23,36,52,0.62) 100%)"></div>
+      <div style="position:relative;max-width:1120px;margin:0 auto;padding:96px 24px;width:100%">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" level="1" align="left" tone="onDark" eyebrow="Our process" deck="Structure first. Products last, if ever. Here's exactly what happens." hint-size="100%,220px">Four Conversations</x-import>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column">
+
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:40px;padding-bottom:56px;border-left:1px solid var(--border-default);padding-left:0;margin-left:0">
+          <div style="padding-left:40px;position:relative">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;background:var(--gold-600);border-radius:50%"></span>
+            <div style="font-family:var(--font-display);font-size:44px;color:var(--stone-300);line-height:1">01</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-top:10px">30 minutes</div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">Clarity Call</h3>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--text-body);margin:16px 0 0">We talk about what you earn, what you own, and what you're actually trying to buy with it. No documents required. You'll leave this call knowing whether a structure conversation is worth having — and if it isn't, we'll say so.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:40px;padding-bottom:56px;border-left:1px solid var(--border-default)">
+          <div style="padding-left:40px;position:relative">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;background:var(--gold-600);border-radius:50%"></span>
+            <div style="font-family:var(--font-display);font-size:44px;color:var(--stone-300);line-height:1">02</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-top:10px">Two sessions</div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">See the Whole Board</h3>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--text-body);margin:16px 0 0">Every account, policy, and dollar of cash flow mapped into one picture using the LEAP method. This is where the financial junk drawer gets emptied onto the table. You don't get a recommendation yet — you get to see what you actually own and how the pieces interact.</p>
+            <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+              <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Badge" tone="navy" hint-size="120px,26px">LEAP Method</x-import>
+              <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Badge" tone="stone" hint-size="140px,26px">Cash Flow Mapping</x-import>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:40px;padding-bottom:56px;border-left:1px solid var(--border-default)">
+          <div style="padding-left:40px;position:relative">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;background:var(--gold-600);border-radius:50%"></span>
+            <div style="font-family:var(--font-display);font-size:44px;color:var(--stone-300);line-height:1">03</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-top:10px">30–60 days</div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">Build the Structure</h3>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--text-body);margin:16px 0 0">Three moves, in order: separate income from lifestyle spending, automate the movement so decisions don't cost willpower, and put real-time visibility on free cash flow. The question shifts from "will this hurt my lifestyle?" to "how should I deploy this capital?"</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:40px;border-left:1px solid transparent">
+          <div style="padding-left:40px;position:relative">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;background:var(--gold-600);border-radius:50%"></span>
+            <div style="font-family:var(--font-display);font-size:44px;color:var(--stone-300);line-height:1">04</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-top:10px">Ongoing</div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">Steward and Pass It On</h3>
+            <p style="font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--text-body);margin:16px 0 0">Scheduled reviews, and the Rockefeller Method applied to what moves to the next generation. The goal isn't just to pass on assets. It's to pass on wisdom, structure, and stewardship.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:88px 24px;background:var(--navy-900)">
+      <div style="max-width:760px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Quote" tone="onDark" align="center" cite="Brock Fortner" role="Founder" hint-size="100%,180px">I don't just tell you what to do. I help you understand why we're doing it.</x-import>
+        <div style="display:flex;justify-content:center;margin-top:44px">
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="outline" arrow="{{ true }}" onClick="{{ goSchedule }}" style="{{ heroCBtn }}" hint-size="220px,46px">Start With Step One</x-import>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}">
+  <main data-screen-label="About">
+    <section style="padding:96px 24px 0;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center">
+        <div>
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-700)">About</div>
+          <h1 style="font-family:var(--font-display);font-weight:700;font-size:44px;line-height:1.2;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:22px 0 0">Built Because the Advice Couldn't Be Verified</h1>
+          <p style="font-family:var(--font-body);font-size:19px;line-height:1.75;color:var(--text-body);margin:24px 0 0">I started StoneCentury because I saw so many people struggling because they lacked a way to test or verify their financial decisions. My father trained advisors in the LEAP method — I grew up around the idea that structure can be proven on paper, not just promised.</p>
+          <p style="font-family:var(--font-body);font-size:19px;line-height:1.75;color:var(--text-body);margin:18px 0 0">Nine years in, I've seen both sides of money personally. That's why I'd rather you understand your own strategy than delegate it to me.</p>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:19px;line-height:1.7;color:var(--navy-700);border-left:2px solid var(--gold-500);padding-left:24px;margin:32px 0 0">Freedom without safeguards is only temporary.</p>
+        </div>
+        <div style="position:relative;height:520px"><image-slot id="about-brock" shape="rect" placeholder="Brock, environmental portrait"></image-slot></div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-subtle);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+        <div style="background:var(--paper);padding:32px 28px">
+          <div style="font-family:var(--font-display);font-size:22px;color:var(--navy-800)">MSF</div>
+          <div style="font-family:var(--font-body);font-size:15px;color:var(--text-muted);margin-top:8px">Vanderbilt University</div>
+        </div>
+        <div style="background:var(--paper);padding:32px 28px">
+          <div style="font-family:var(--font-display);font-size:22px;color:var(--navy-800)">CIA</div>
+          <div style="font-family:var(--font-body);font-size:15px;color:var(--text-muted);margin-top:8px">Chartered Income Advisor</div>
+        </div>
+        <div style="background:var(--paper);padding:32px 28px">
+          <div style="font-family:var(--font-display);font-size:22px;color:var(--navy-800)">RICP · ChFC</div>
+          <div style="font-family:var(--font-body);font-size:15px;color:var(--text-muted);margin-top:8px">In progress</div>
+        </div>
+        <div style="background:var(--paper);padding:32px 28px">
+          <div style="font-family:var(--font-display);font-size:22px;color:var(--navy-800)">9 Years</div>
+          <div style="font-family:var(--font-body);font-size:15px;color:var(--text-muted);margin-top:8px">In the industry</div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper-alt)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="What we believe" deck="Four convictions that shape every recommendation we make." hint-size="100%,180px">Our Beliefs</x-import>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:56px">
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:36px 32px">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Structure Beats Hustle</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-body);margin:14px 0 0">The problem is almost never income. It's the absence of a system for the income you already have.</p>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:36px 32px">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Cash Flow Over Net Worth</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-body);margin:14px 0 0">A nest egg is just stored capital. What matters is how much cash flow your assets produce.</p>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:36px 32px">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Ownership, Not Outsourcing</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-body);margin:14px 0 0">We educate rather than prescribe. Handing your money to someone you don't understand is a risk, not a convenience.</p>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:36px 32px">
+            <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Responsibility Is the Turning Point</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-body);margin:14px 0 0">Your financial success is ultimately up to you. The day you choose to take responsibility, your life will change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:96px 24px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" eyebrow="Our team" deck="Four people in Brentwood, Tennessee. You'll know all of us." hint-size="100%,180px">Who You'll Work With</x-import>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px">
+          <div>
+            <div style="height:280px;position:relative"><image-slot id="team-1" shape="rect" placeholder="Brock Fortner"></image-slot></div>
+            <div style="font-family:var(--font-display);font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin-top:20px">Brock Fortner</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-700);margin-top:8px">Founder</div>
+          </div>
+          <div>
+            <div style="height:280px;position:relative"><image-slot id="team-2" shape="rect" placeholder="Josh"></image-slot></div>
+            <div style="font-family:var(--font-display);font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin-top:20px">Josh</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-700);margin-top:8px">Advisory</div>
+          </div>
+          <div>
+            <div style="height:280px;position:relative"><image-slot id="team-3" shape="rect" placeholder="Camille"></image-slot></div>
+            <div style="font-family:var(--font-display);font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin-top:20px">Camille</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-700);margin-top:8px">Client Operations</div>
+          </div>
+          <div>
+            <div style="height:280px;position:relative"><image-slot id="team-4" shape="rect" placeholder="Tommy"></image-slot></div>
+            <div style="font-family:var(--font-display);font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin-top:20px">Tommy</div>
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-700);margin-top:8px">Planning</div>
+          </div>
+        </div>
+        <p style="font-family:var(--font-body);font-size:13px;color:var(--stone-500);margin:28px 0 0">Roles shown are placeholders — confirm titles and headshots before launch.</p>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isResources }}">
+  <main data-screen-label="Resources">
+    <section style="padding:96px 24px 0;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto">
+        <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.SectionHeading" level="1" align="left" eyebrow="Resources" deck="Read first, decide later. Everything here is free and nothing asks you to buy a product." hint-size="100%,220px">Learn the System</x-import>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:64px 24px 0;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px">
+        <div style="background:var(--navy-900);border-radius:var(--radius-md);padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px">
+          <div>
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-500)">Free book</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin-top:20px">The Rockefeller Method</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-on-dark-muted);margin:16px 0 0">How one family kept wealth intact for six generations while most lose it in three. Yours free, no call required.</p>
+          </div>
+          <div style="margin-top:32px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="outline" arrow="{{ true }}" style="{{ heroCBtn }}" hint-size="200px,46px">Send Me the Book</x-import>
+          </div>
+        </div>
+        <div style="background:var(--paper-alt);border-radius:var(--radius-md);padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px">
+          <div>
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-700)">Course</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin-top:20px">Legacy Builder Course</div>
+            <p style="font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--text-body);margin:16px 0 0">A self-paced walk through the same structure we build with clients: blueprint, cash flow, protection, legacy.</p>
+          </div>
+          <div style="margin-top:32px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" variant="navy" arrow="{{ true }}" hint-size="200px,46px">Join the Course</x-import>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding:88px 24px 96px;background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--border-subtle);padding-bottom:20px">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:0">From the Blog</h2>
+          <span style="font-family:var(--font-label);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Six posts</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px">
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Mindset" title="The First Place You Should Invest Your Money" hint-size="100%,300px">Your first investment should always be in yourself. Why the financial blueprint comes before the asset.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Cash flow" title="Passive Income Isn't Passive — But It's Worth It" hint-size="100%,300px">One client went from paycheck-only to roughly $400,000 a year in passive income in three years. It moved like a snowball.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Framework" title="The 4 Areas I Invest My Money" hint-size="100%,300px">Quality of life, skillset, becoming a better investor, then cash-flow producing assets. Most people start at four.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Clarity" title="The Real Reason High Earners Hesitate to Invest" hint-size="100%,300px">It isn't income. It's the missing separation between income and lifestyle — and the cost is delayed progress.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Investing" title="The Lie You've Been Told About Investing in the Market" hint-size="100%,300px">Most people in the market are speculating, not investing. Build a strategy aligned with your Investor DNA.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+          <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Card" eyebrow="Retirement" title="Retirement Is About Income, Not a Big Nest Egg" hint-size="100%,300px">A nest egg is just stored capital. Build a personal income engine instead of a bigger pile.<div style="margin-top:14px;font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy-600)">Read the post →</div></x-import>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isSchedule }}">
+  <main data-screen-label="Schedule a Call">
+    <section style="padding:88px 24px 96px;background:var(--paper-alt)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:0.95fr 1.05fr;gap:64px;align-items:start">
+        <div>
+          <div style="font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-700)">Schedule a call</div>
+          <h1 style="font-family:var(--font-display);font-weight:700;font-size:44px;line-height:1.2;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800);margin:22px 0 0">Thirty Minutes. No Pitch.</h1>
+          <p style="font-family:var(--font-body);font-size:19px;line-height:1.75;color:var(--text-body);margin:22px 0 0">If you don't know where to start, let's talk. You'll leave knowing what your structure is missing — whether or not we ever work together.</p>
+          <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border-default)">
+            <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy-700)">What happens on the call</div>
+            <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">What you earn, what you own, what you want it to do</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">Where the structure is leaking right now</span></li>
+              <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true" style="color:var(--gold-600);font-weight:600;flex:none">→</span><span style="font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--text-body)">A straight answer on whether we're the right fit</span></li>
+            </ul>
+          </div>
+          <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border-default);display:flex;gap:40px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Call</div>
+              <div style="font-family:var(--font-body);font-size:18px;color:var(--navy-800);margin-top:8px">(615) 397-8799</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Email</div>
+              <div style="font-family:var(--font-body);font-size:18px;color:var(--navy-800);margin-top:8px">brock@stonecenturyfinancial.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--paper);border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);border-radius:var(--radius-md);padding:40px 36px">
+          <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy-800)">Pick a Time</div>
+          <div style="margin-top:28px;border:1px dashed var(--border-default);border-radius:var(--radius-md);padding:44px 24px;text-align:center;background:var(--paper-warm)">
+            <div style="font-family:var(--font-label);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Scheduler embed</div>
+            <div style="font-family:var(--font-body);font-size:17px;color:var(--text-body);margin-top:12px">GoHighLevel calendar mounts here</div>
+          </div>
+          <div style="height:1px;background:var(--border-subtle);margin:32px 0"></div>
+          <div style="font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy-700)">Or send a note</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Input" label="First name" placeholder="Brock" hint-size="100%,74px"></x-import>
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Input" label="Last name" placeholder="Fortner" hint-size="100%,74px"></x-import>
+          </div>
+          <div style="margin-top:18px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Input" label="Email" type="email" placeholder="you@company.com" hint-size="100%,74px"></x-import>
+          </div>
+          <div style="margin-top:18px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Input" label="Household income range" placeholder="$200k – $800k" hint="Helps us prepare before the call." hint-size="100%,96px"></x-import>
+          </div>
+          <div style="margin-top:28px">
+            <x-import component-from-global-scope="StoneCenturyFinancialDesignSystem_17eb02.Button" size="lg" arrow="{{ true }}" style="{{ fullBtn }}" hint-size="100%,54px">Request My Call</x-import>
+          </div>
+          <p style="font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--text-muted);margin:20px 0 0">We'll never share your information. Submitting this form does not create an advisory relationship.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <footer style="background:var(--navy-500);padding:72px 24px 0">
+    <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px">
+      <div>
+        <img src="assets/logo.png" alt="StoneCentury Financial" style="height:52px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.95">
+        <p style="font-family:var(--font-body);font-size:16px;line-height:1.7;color:#e2e7ee;margin:22px 0 0;max-width:34ch">Build a wealth system that works as hard as you do.</p>
+        <div style="font-family:var(--font-body);font-size:15px;color:#cdd6e1;margin-top:22px">Brentwood, Tennessee<br>(615) 397-8799</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff">Site</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px">
+          <a href="#" onClick="{{ goHome }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Home</a>
+          <a href="#" onClick="{{ goWho }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Who We Help</a>
+          <a href="#" onClick="{{ goProcess }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Our Process</a>
+          <a href="#" onClick="{{ goAbout }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">About</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff">Resources</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px">
+          <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Blog</a>
+          <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Free Book</a>
+          <a href="#" onClick="{{ goResources }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Legacy Builder Course</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff">Get started</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px">
+          <a href="#" onClick="{{ goSchedule }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Schedule a Call</a>
+          <a href="#" onClick="{{ goSchedule }}" style="font-family:var(--font-body);font-size:16px;color:#e2e7ee">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1120px;margin:56px auto 0;padding:28px 0 36px;border-top:1px solid rgba(255,255,255,0.22)">
+      <p style="font-family:var(--font-body);font-size:13px;line-height:1.7;color:#cdd6e1;margin:0">StoneCentury Financial. All rights reserved. The information on this site is for general educational purposes only and does not constitute investment, tax, or legal advice. Nothing here is an offer or solicitation to buy or sell any security or insurance product. Past performance and case studies are not indicative of future results. Consult a qualified professional regarding your specific situation. Insurance and advisory services offered where licensed.</p>
+    </div>
+  </footer>
+
+  <div style="position:fixed;bottom:20px;right:20px;z-index:80;display:flex;align-items:center;gap:6px;background:rgba(23,23,23,0.94);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-pill);padding:8px 10px;box-shadow:var(--shadow-lg)">
+    <span style="font-family:var(--font-label);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-500);padding:0 10px 0 8px">Hero</span>
+    <button onClick="{{ setHeroA }}" style="border:none;background:transparent;cursor:pointer;padding:8px 14px;border-radius:var(--radius-pill);font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px">
+      <sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}"><span style="display:block;width:6px;height:6px;border-radius:50%;background:var(--gold-500)"></span></sc-if>A · Photographic
+    </button>
+    <button onClick="{{ setHeroB }}" style="border:none;background:transparent;cursor:pointer;padding:8px 14px;border-radius:var(--radius-pill);font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px">
+      <sc-if value="{{ heroB }}"><span style="display:block;width:6px;height:6px;border-radius:50%;background:var(--gold-500)"></span></sc-if>B · Editorial
+    </button>
+    <button onClick="{{ setHeroC }}" style="border:none;background:transparent;cursor:pointer;padding:8px 14px;border-radius:var(--radius-pill);font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px">
+      <sc-if value="{{ heroC }}"><span style="display:block;width:6px;height:6px;border-radius:50%;background:var(--gold-500)"></span></sc-if>C · Statement
+    </button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroDirection&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;\&quot;A\&quot; | \&quot;B\&quot; | \&quot;C\&quot;&quot;,&quot;section&quot;:&quot;Homepage&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;off&quot;,&quot;quiet&quot;,&quot;expressive&quot;],&quot;default&quot;:&quot;quiet&quot;,&quot;tsType&quot;:&quot;\&quot;off\&quot; | \&quot;quiet\&quot; | \&quot;expressive\&quot;&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { page: "home", hero: null, menuOpen: false };
+
+  componentDidMount() {
+    this.setupReveal();
+    this.onScroll = () => {
+      if ((this.props.motion || "quiet") !== "expressive") return;
+      const y = window.scrollY || 0;
+      document.querySelectorAll("[data-parallax]").forEach((el) => {
+        el.style.transform = "translateY(" + (y * 0.16).toFixed(1) + "px)";
+      });
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.page !== this.state.page || prevState.hero !== this.state.hero || prevProps.motion !== this.props.motion) {
+      requestAnimationFrame(() => this.setupReveal());
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    if (this.io) this.io.disconnect();
+  }
+
+  setupReveal() {
+    const mode = this.props.motion || "quiet";
+    if (this.io) { this.io.disconnect(); this.io = null; }
+    const els = Array.from(document.querySelectorAll("[data-reveal]"));
+    if (mode === "off") {
+      els.forEach((el) => { el.style.opacity = ""; el.style.transform = ""; el.style.transition = ""; });
+      return;
+    }
+    const dist = mode === "expressive" ? 40 : 16;
+    const dur = mode === "expressive" ? 780 : 560;
+    els.forEach((el) => {
+      if (el.dataset.revealed === "1") return;
+      el.style.opacity = "0";
+      el.style.transform = "translateY(" + dist + "px)";
+      el.style.transition = "opacity " + dur + "ms cubic-bezier(0,0,0.2,1), transform " + dur + "ms cubic-bezier(0,0,0.2,1)";
+      el.style.willChange = "opacity, transform";
+    });
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        el.dataset.revealed = "1";
+        el.style.opacity = "1";
+        el.style.transform = "none";
+        this.io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
+    els.forEach((el) => { if (el.dataset.revealed !== "1") this.io.observe(el); });
+  }
+
+  go(page) {
+    document.querySelectorAll("[data-reveal]").forEach((el) => { delete el.dataset.revealed; });
+    this.setState({ page: page, menuOpen: false });
+    window.scrollTo(0, 0);
+  }
+
+  renderVals() {
+    const p = this.state.page;
+    const hero = this.state.hero || this.props.heroDirection || "A";
+    const nav = (page) => (e) => { if (e) e.preventDefault(); this.go(page); };
+    return {
+      isHome: p === "home",
+      isWho: p === "who",
+      isProcess: p === "process",
+      isAbout: p === "about",
+      isResources: p === "resources",
+      isSchedule: p === "schedule",
+      navHome: p === "home",
+      navWho: p === "who",
+      navProcess: p === "process",
+      navAbout: p === "about",
+      navResources: p === "resources",
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      goHome: nav("home"),
+      goWho: nav("who"),
+      goProcess: nav("process"),
+      goAbout: nav("about"),
+      goResources: nav("resources"),
+      goSchedule: nav("schedule"),
+      heroA: hero === "A",
+      heroB: hero === "B",
+      heroC: hero === "C",
+      setHeroA: () => this.setState({ hero: "A" }),
+      setHeroB: () => this.setState({ hero: "B" }),
+      setHeroC: () => this.setState({ hero: "C" }),
+      heroCBtn: { borderColor: "rgba(255,255,255,0.55)", color: "#fff" },
+      fullBtn: { width: "100%", justifyContent: "center" },
+      emailField: { flex: "1 1 240px" }
+    };
+  }
+}
+</script>
+</body>
+</html>
