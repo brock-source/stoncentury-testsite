@@ -1,0 +1,132 @@
+/* ============================================================
+   DESIGN TOKENS — StoneCentury Financial
+   Ported from the Claude Design system (_ds/stonecentury-financial-
+   design-system-.../tokens/*.css). Navy/slate (trust, structure) +
+   stone gray (the tower) + warm gold accent. Restrained, institutional.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  /* -- Navy / slate (primary brand) -- */
+  --navy-900: #1b2a3c;
+  --navy-800: #223549;
+  --navy-700: #2e4763;
+  --navy-600: #3a5674;
+  --navy-500: #47668a;
+  --navy-400: #6a83a1;
+  --navy-200: #b3c1d2;
+  --navy-100: #dde4ec;
+
+  /* -- Stone gray (the tower mark) -- */
+  --stone-900: #3a3f43;
+  --stone-700: #62676c;
+  --stone-500: #878c92;
+  --stone-400: #a4a9ae;
+  --stone-300: #c3c7cb;
+  --stone-200: #dcdfe2;
+  --stone-100: #ecedef;
+
+  /* -- Ink & paper (warm neutrals) -- */
+  --ink-900: #171717;
+  --ink-700: #333333;
+  --ink-500: #595653;
+  --paper: #ffffff;
+  --paper-alt: #f1f0ee;
+  --paper-warm: #f7f5f2;
+
+  /* -- Gold (accent only) -- */
+  --gold-700: #8a6526;
+  --gold-600: #a67c34;
+  --gold-500: #c39a4f;
+  --gold-200: #e8dcc2;
+
+  /* -- Semantic -- */
+  --success-600: #3d7a52;
+  --success-100: #e2efe6;
+  --error-600: #a83a33;
+  --error-100: #f4e0de;
+
+  /* -- Semantic aliases -- */
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-on-dark: #f4f3f1;
+  --text-on-dark-muted: #b9c2cc;
+
+  --surface-footer: var(--navy-500);
+  --border-subtle: var(--stone-200);
+  --border-default: var(--stone-300);
+  --border-strong: var(--stone-500);
+
+  --link: var(--navy-600);
+  --link-hover: var(--navy-800);
+  --focus-ring: var(--navy-500);
+
+  /* -- Typography -- */
+  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+  --font-label: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-display: 60px;
+  --fs-h1: 44px;
+  --fs-h2: 34px;
+  --fs-h3: 26px;
+  --fs-h4: 20px;
+  --fs-body-lg: 19px;
+  --fs-body: 17px;
+  --fs-body-sm: 15px;
+  --fs-caption: 13px;
+  --fs-eyebrow: 13px;
+
+  --lh-tight: 1.15;
+  --lh-heading: 1.25;
+  --lh-body: 1.65;
+  --lh-relaxed: 1.8;
+
+  --ls-heading: 0.05em;
+  --ls-eyebrow: 0.22em;
+  --ls-label: 0.14em;
+
+  /* -- Spacing (4px base) -- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --container-max: 1120px;
+  --container-narrow: 760px;
+  --section-y: 96px;
+  --gutter: 24px;
+
+  /* -- Effects -- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(27, 42, 60, 0.06);
+  --shadow-sm: 0 1px 3px rgba(27, 42, 60, 0.10), 0 1px 2px rgba(27, 42, 60, 0.06);
+  --shadow-md: 0 4px 14px rgba(27, 42, 60, 0.10);
+  --shadow-lg: 0 14px 40px rgba(27, 42, 60, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(71, 102, 138, 0.35);
+
+  --scrim-hero: linear-gradient(180deg, rgba(23,36,52,0.62) 0%, rgba(23,36,52,0.48) 45%, rgba(23,36,52,0.72) 100%);
+
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --dur-base: 200ms;
+}
