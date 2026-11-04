@@ -516,8 +516,8 @@ button { font: inherit; }
 .process-step__list { margin: 18px 0 0; }
 
 .process-teaser { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.16); }
-.process-teaser__step { padding: 32px 32px 8px 0; border-right: 1px solid rgba(255,255,255,0.16); }
-.process-teaser__step:last-child { border-right: none; padding-right: 0; }
+.process-teaser__step { padding: 32px 28px 8px; border-right: 1px solid rgba(255,255,255,0.16); }
+.process-teaser__step:last-child { border-right: none; }
 .process-teaser__num { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.2em; color: var(--gold-500); }
 .process-teaser__title { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; margin-top: 18px; }
 .process-teaser__text { font-family: var(--font-body); font-size: 15.5px; line-height: 1.6; color: var(--text-on-dark-muted); margin: 12px 0 0; }
